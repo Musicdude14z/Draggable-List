@@ -19,9 +19,7 @@
 	
     $('ul, li').disableSelection();
 	
-	var i = 0;
 	$('#order li').each(function() {
-		$this.find('.num').html(++i);
 		counter.push(parseInt(Math.random()*20 - 10));
 		dir.push(parseInt(Math.random()*2) ? 1 : -1);
 	});
@@ -41,7 +39,7 @@
 				right: (Math.random() * 40 - 20) + 'px'
 			});
 			*/
-			if(i == 9)
+			if(++i == 9)
 				$this.parent().addClass('indent');	
 		});
 	}
@@ -78,16 +76,16 @@
 
 <div id="content">
 <ol id="order">
-  <li><span>#<span class='num'></span>. Make friends with your death</span></li>
-  <li><span>#<span class='num'></span>. Plan to arrive early</span></li>
-  <li><span>#<span class='num'></span>. Before you leave for the big game, make a tailgating checklist</span></li>
-  <li><span>#<span class='num'></span>. Pack a Victory Cooler</span></li>
-  <li><span>#<span class='num'></span>. Wear Team Krill color&ndash;but insulate</span></li>
-  <li><span>#<span class='num'></span>. Tip the Russians well</span></li>
-  <li><span>#<span class='num'></span>. Tailgating is all about sharing</span></li>
-  <li><span>#<span class='num'></span>. Be a good sport&ndash;but watch your back!</span></li>
-  <li><span>#<span class='num'></span>. Don't fall overboard</span></li>
-  <li><span>#<span class='num'></span>. Don't stop believin'</span></li>
+  <li><span>#<span class='num'>1</span>. Make friends with your death</span></li>
+  <li><span>#<span class='num'>2</span>. Plan to arrive early</span></li>
+  <li><span>#<span class='num'>3</span>. Before you leave for the big game, make a tailgating checklist</span></li>
+  <li><span>#<span class='num'>4</span>. Pack a Victory Cooler</span></li>
+  <li><span>#<span class='num'>5</span>. Wear Team Krill color&ndash;but insulate</span></li>
+  <li><span>#<span class='num'>6</span>. Tip the Russians well</span></li>
+  <li><span>#<span class='num'>7</span>. Tailgating is all about sharing</span></li>
+  <li><span>#<span class='num'>8</span>. Be a good sport&ndash;but watch your back!</span></li>
+  <li><span>#<span class='num'>9</span>. Don't fall overboard</span></li>
+  <li><span>#<span class='num'>10</span>. Don't stop believin'</span></li>
 </ol>
 </div>
  
