@@ -13,6 +13,8 @@ body {
 	height: 132px;
 	width: 221px;
 	
+	cursor: pointer;
+	
 	position: relative;
 	top: 0px;
 	right: 0px;
