@@ -19,7 +19,9 @@
 	
     $('ul, li').disableSelection();
 	
+	var i = 0;
 	$('#order li').each(function() {
+		$this.find('.num').html(++i);
 		counter.push(parseInt(Math.random()*20 - 10));
 		dir.push(parseInt(Math.random()*2) ? 1 : -1);
 	});
@@ -29,7 +31,6 @@
 		$('.indent').removeClass('indent');
 		$('#order li > span').each(function() {
 			$this = $(this);
-			$this.find('.num').html(++i);
 			if($this.parent().css('right') === 'auto')
 				$this.parent().css('right', '0px');
 			if($this.parent().css('top') === 'auto')
