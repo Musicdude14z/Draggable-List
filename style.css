@@ -1,0 +1,52 @@
+body {
+	background-image: url('http://cdni.wired.co.uk/1920x1280/a_c/antarctic.jpg');
+	background-size: 100%;
+}
+
+#content {
+	margin: auto;
+	width: 1200px;
+}
+
+#order li {
+	display: inline-block;
+	height: 132px;
+	width: 221px;
+	
+	position: relative;
+	top: 0px;
+	right: 0px;
+	
+	background-image: url(cloud.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	/*
+	border-radius: 10px;
+	border-width: 1px;
+	border-color: #000;
+	border-style: solid;
+	*/
+	
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	
+	margin: 30px;
+}
+
+#order li > span {
+	display: inline-block;
+	height: 100%;
+	width: 90%;
+	
+	font-style: italic;
+	font-weight: bold;
+	
+	margin: 75px 0px;
+	
+	vertical-align: middle;
+}
+
+#order li.indent {
+	margin-left: 320px;
+}

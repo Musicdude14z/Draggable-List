@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Draggable Order of Events</title>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  var counter = [], dir = []
+  $(function() {
+    $('#order').sortable({
+      revert: false
+    });
+	
+    $('#order li').draggable({
+      connectToSortable: "#order",
+    });
+	
+    $('ul, li').disableSelection();
+	
+	$('#order li').each(function() {
+		counter.push(parseInt(Math.random()*20 - 10));
+		dir.push(parseInt(Math.random()*2) ? 1 : -1);
+	});
+	
+	function update() {
+		var i = 0;
+		$('.indent').removeClass('indent');
+		$('#order li > span').each(function() {
+			$this = $(this);
+			$this.find('.num').html(++i);
+			if($this.parent().css('right') === 'auto')
+				$this.parent().css('right', '0px');
+			if($this.parent().css('top') === 'auto')
+				$this.parent().css('top', '0px');
+			/*
+			$this.parent().css({
+				top: (Math.random() * 40 - 20) + 'px',
+				right: (Math.random() * 40 - 20) + 'px'
+			});
+			*/
+			if(i == 9)
+				$this.parent().addClass('indent');	
+		});
+	}
+	
+	setTimeout(function move() {
+		var j = 0;
+		$('#order li').each(function () {
+			$this = $(this);
+			if(parseInt(Math.random()*2))
+				$this.css('top', parseInt($this.css('top')) + dir[j] + 'px');
+			if(parseInt(Math.random()*2))
+				$this.css('right', parseInt($this.css('right')) + dir[j] + 'px');
+		});
+		
+		for(var j = 0; j < counter.length; ++j) {
+			if(Math.abs(counter[j]) >= parseInt(Math.random()*50))
+				dir[j] = -dir[j];
+			counter[j] += dir[j];
+		}
+		
+		setTimeout(move, 100);
+	}, 100);
+	
+	$('#order li').mouseup(function() {
+		setTimeout(update, 10);
+	});
+	
+	update();
+	
+  });
+  </script>
+</head>
+<body>
+
+<div id="content">
+<ol id="order">
+  <li><span>#<span class='num'></span>. Make friends with your death</span></li>
+  <li><span>#<span class='num'></span>. Plan to arrive early</span></li>
+  <li><span>#<span class='num'></span>. Before you leave for the big game, make a tailgating checklist</span></li>
+  <li><span>#<span class='num'></span>. Pack a Victory Cooler</span></li>
+  <li><span>#<span class='num'></span>. Wear Team Krill color&ndash;but insulate</span></li>
+  <li><span>#<span class='num'></span>. Tip the Russians well</span></li>
+  <li><span>#<span class='num'></span>. Tailgating is all about sharing</span></li>
+  <li><span>#<span class='num'></span>. Be a good sport&ndash;but watch your back!</span></li>
+  <li><span>#<span class='num'></span>. Don't fall overboard</span></li>
+  <li><span>#<span class='num'></span>. Don't stop believin'</span></li>
+</ol>
+</div>
+ 
+</body>
+</html>
